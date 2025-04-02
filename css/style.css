@@ -35,7 +35,6 @@ h3 {
   font-weight: 400;
 }
 
-
 p {
   margin-top: 0;
   margin-bottom: 1.5em;
@@ -59,7 +58,7 @@ img {
 }
 
 section {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 
 /* 初期スタイル調整 ここまで */
@@ -104,6 +103,15 @@ section {
 }
 .small {
   font-size: 14px;
+}
+.narrow-spacing {
+  letter-spacing: -0.01em; /* マイナスの値で文字間を狭くする */
+}
+.wide-spacing {
+  letter-spacing: 0.09em; /* 文字間を広くする */
+}
+.text-large {
+  font-size: 20px;
 }
 
 /*ボタン関連*/
@@ -436,7 +444,7 @@ section {
 }
 .nayami-item {
   margin: 16px 32px;
-  line-height: 1.2;
+  line-height: 1.6em;
   letter-spacing: 2px;
   text-align: left;
 }
@@ -452,9 +460,10 @@ section {
 .nayami-bold {
   font-weight: 600;
 }
-.nayami-large {
-  font-size: 20px;
-  font-weight: 600;
+
+.nayami-list p {
+  text-indent: -1.5em; /* インデントを逆にして揃える */
+  padding-left: 1.5em; /* マークの後ろから始まるように調整 */
 }
 
 .letter-space {
@@ -466,7 +475,19 @@ section {
   border-bottom: solid 5px rgba(136, 191, 226, 0.5);
 
 }
-
+.nayami img {
+  width: 15%;
+  margin-top: 10px;
+}
+.soudansitu-title {
+  color: #fff;
+  background: #88bfe2;
+  padding: 5px;
+  width: auto;
+  border-radius: 5px;
+  margin-right: auto;
+  margin-left: auto;
+}
 @media screen and (min-width:768px) {
   .info-content {
     display: flex;
@@ -676,10 +697,22 @@ section {
   margin-bottom: 0.5em;
 }
 .q_a-title {
-  text-align: center;
+  display: flex;
+  align-items: flex-start; /* 上揃えにする */
+  gap: 0.3em; /* Q. とテキストの間にスペースを作る */
   padding-bottom: 10px;
   border-bottom: 2px solid #88bfe2;
 }
+
+.q_a-title::before {
+  content: "Q.";
+  display: inline-block;
+  flex-shrink: 0; /* Q. の幅を固定する */
+  margin-right: 0.3em; /* スペースを追加する */
+  margin-left: 0.3em; /* 左側に余白を追加してQ.の位置を右へ移動 */
+
+}
+
 .q_a-area img {
   width: 100px;
   margin: 20px;
@@ -696,6 +729,38 @@ section {
   margin-right: 0.5em;
   margin-left: 1em;
 }
+.check-li {
+  display: flex;
+  align-items: flex-start; /* 上揃えにする */
+  gap: 0.3em; /* チェックマークとテキストの間にスペースを作る */
+  margin-bottom: 10px;
+}
+.check-li::before {
+  content: "✔️";
+  display: inline-block;
+  flex-shrink: 0; /* マークの幅を固定する */
+  margin-top: 0.5em;
+  margin-right: 0.3em; /* スペースを追加する */
+  margin-left: 0.3em; /* 左側に余白を追加してマークの位置を右へ移動 */
+  font-size: 0.7em;
+}
+.benefit-li {
+  display: flex;
+  align-items: flex-start; /* 上揃えにする */
+  gap: 0.3em; /* チェックマークとテキストの間にスペースを作る */
+  margin-bottom: 10px;
+}
+.benefit-li::before {
+  content: "✦";
+  display: inline-block;
+  flex-shrink: 0; /* マークの幅を固定する */
+  margin-top: -0.1em;
+  margin-right: 0.3em; /* スペースを追加する */
+  margin-left: 0.3em; /* 左側に余白を追加してマークの位置を右へ移動 */
+  font-size: 1em;
+  color: #88bfe2;
+}
+
 @media screen and (min-width: 768px) {
   .q_a-content {
     display: grid;
@@ -710,6 +775,7 @@ section {
     margin-right: 15px;
   }
 }
+
 /*
 @media screen and (min-width:768px) {
   .q_a-content {
